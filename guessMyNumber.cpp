@@ -12,11 +12,11 @@ int main()
 
   int numTries = 0;
   int guess = 0;
-  char answer = 'N';
+  char answer = 'n';
 
   // Set the seed
   srand((unsigned)time(NULL));
-  // Generate random number between (1 - MAX_NUMBER)
+  // Generate a random number between (1 - MAX_NUMBER)
   int secretNumber = (rand() % MAX_NUMBER) + 1;
 
   cout << endl
@@ -31,7 +31,7 @@ int main()
     ++numTries;
 
     // Check if user guess is a valid number between (1 - MAX_NUMBER)
-    if (!((guess > 0) && (guess <= MAX_NUMBER)))
+    if ((guess <= 0) || (guess > MAX_NUMBER))
     {
       cout << "Invalid guess. Guess again..." << endl;
       continue;
@@ -39,11 +39,11 @@ int main()
 
     if (guess < secretNumber)
     {
-      cout << guess << ": Too Low..." << endl;
+      cout << "Too Low..." << endl;
     }
     else if (guess > secretNumber)
     {
-      cout << guess << ": Too High..." << endl;
+      cout << "Too High..." << endl;
     }
     else
     {
@@ -90,4 +90,6 @@ int main()
          << endl
          << endl;
   }
+
+  return 0;
 }
