@@ -30,7 +30,7 @@ int main()
     cin >> guess;
     ++numTries;
 
-    // Check if user guess is a valid number between (1 - MAX_NUMBER)
+    // Check if player guess is a valid number between (1 - MAX_NUMBER)
     if ((guess <= 0) || (guess > MAX_NUMBER))
     {
       cout << "Invalid guess. Guess again..." << endl;
@@ -49,23 +49,23 @@ int main()
     {
       cout << endl
            << "You got it !!!";
-      // EXIT the game loop, if user guess is CORRECT
+      // EXIT the game loop, if player guess is CORRECT
       break;
     }
 
-    // Ask if user wants to continue or not.
+    // Ask if player wants to continue or not.
     cout << "Continue ? (y/n) : ";
     cin >> answer;
     if ((answer == 'Y') || (answer == 'y'))
       continue;
     else
-      // EXIT the game loop, if user does NOT want to continue
+      // EXIT the game loop, if player does NOT want to continue
       break;
   };
 
   // Print final statistics before exiting
 
-  // Depending on whether user guessed it right or not
+  // Depending on whether player guessed it correctly or not
   if (guess == secretNumber)
   {
     cout << endl
@@ -77,7 +77,7 @@ int main()
          << "Better luck next time! Number was " << secretNumber << ". "
          << "You had " << numTries;
   }
-  // and the number of user guess(es)
+  // and the number of player guess(es)
   if (numTries == 1)
   {
     cout << " guess."
