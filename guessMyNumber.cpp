@@ -8,6 +8,7 @@ using namespace std;
 
 int main()
 {
+  const int MAX_NUMBER = 100;
 
   int numTries = 0;
   int guess = 0;
@@ -15,19 +16,26 @@ int main()
 
   // Set the seed
   srand((unsigned)time(NULL));
-  // Generate random number between 1-100
-  int secretNumber = (rand() % 100) + 1;
+  // Generate random number between (1 - MAX_NUMBER)
+  int secretNumber = (rand() % MAX_NUMBER) + 1;
 
   cout << endl
-       << "Welcome to \"Guess My Number\" between 1-100 !!!" << endl
+       << "Welcome to \"Guess My Number\" between 1-" << MAX_NUMBER << " !!!" << endl
        << endl;
 
   // Game loop
-  while (guess <= 100)
+  while (true)
   {
     cout << "Enter a guess : ";
     cin >> guess;
     ++numTries;
+
+    // Check if user guess is a valid number between (1 - MAX_NUMBER)
+    if (!((guess > 0) && (guess <= MAX_NUMBER)))
+    {
+      cout << "Invalid guess. Guess again..." << endl;
+      continue;
+    }
 
     if (guess < secretNumber)
     {
