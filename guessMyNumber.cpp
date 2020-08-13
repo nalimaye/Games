@@ -11,6 +11,7 @@ int main()
 
   int numTries = 0;
   int guess = 0;
+  char answer = 'N';
 
   // set the seed
   srand((unsigned)time(NULL));
@@ -29,15 +30,22 @@ int main()
 
     if (guess < secretNumber)
     {
-      cout << "Too Low" << endl;
+      cout << guess << ": Too Low..." << endl;
     }
     else if (guess > secretNumber)
     {
-      cout << "Too High" << endl;
+      cout << guess << ": Too High..." << endl;
     }
     else
     {
       cout << "You got it !!!" << endl;
     }
+
+    cout << "Continue ? (Y/N) : ";
+    cin >> answer;
+    if (answer == 'Y')
+      continue;
+    else
+      break;
   } while (guess != secretNumber);
 }
