@@ -13,16 +13,17 @@ int main()
   int guess = 0;
   char answer = 'N';
 
-  // set the seed
+  // Set the seed
   srand((unsigned)time(NULL));
-  // generate random number between 1-100
+  // Generate random number between 1-100
   int secretNumber = (rand() % 100) + 1;
 
   cout << endl
        << "Welcome to \"Guess My Number\" between 1-100 !!!" << endl
        << endl;
 
-  do
+  // Game loop
+  while (guess <= 100)
   {
     cout << "Enter a guess : ";
     cin >> guess;
@@ -38,14 +39,47 @@ int main()
     }
     else
     {
-      cout << "You got it !!!" << endl;
+      cout << endl
+           << "You got it !!!";
+      // EXIT the game loop, if user guess is CORRECT
+      break;
     }
 
-    cout << "Continue ? (Y/N) : ";
+    // Ask if user wants to continue or not.
+    cout << "Continue ? (y/n) : ";
     cin >> answer;
-    if (answer == 'Y')
+    if ((answer == 'Y') || (answer == 'y'))
       continue;
     else
+      // EXIT the game loop, if user does NOT want to continue
       break;
-  } while (guess != secretNumber);
+  };
+
+  // Print final statistics before exiting
+
+  // Depending on whether user guessed it right or not
+  if (guess == secretNumber)
+  {
+    cout << endl
+         << "You guessed it in " << numTries;
+  }
+  else
+  {
+    cout << endl
+         << "Better luck next time! Number was " << secretNumber << ". "
+         << "You had " << numTries;
+  }
+  // and the number of user guess(es)
+  if (numTries == 1)
+  {
+    cout << " guess."
+         << endl
+         << endl;
+  }
+  else
+  {
+    cout << " guesses."
+         << endl
+         << endl;
+  }
 }
