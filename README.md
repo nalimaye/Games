@@ -9,3 +9,7 @@ This is a classic number guessing game, where player guesses a randomly generate
 This is a twist on the classic number guessing game. Here the player and the computer switch roles.
 Player picks a number and the computer has to guess what it is.
 Player will provide guidance such as range and feedback ("Too Low" or "Too High").
+
+### StringTester
+
+Player inputs a string and the game can test it for various things.
