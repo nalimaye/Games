@@ -45,10 +45,14 @@ int main()
 
   string guess;
   string jumble;
+  int score = 0;
+  int playCount = 0;
 
   // Main Game loop
   do
   {
+    playCount++;
+
     // Set the seed
     srand((unsigned)time(NULL));
     // Generate a random number between (0 to NUM_WORDS-1)
@@ -89,16 +93,18 @@ int main()
 
     if (guess == theWord)
     {
+      score++;
       cout << "Congratulations ! You guessed it !!\n";
     }
+
     if (guess == "next")
       continue;
-
-    if (guess == "quit")
+    else if (guess == "quit")
       break;
 
   } while (guess != "quit");
 
-  cout << "\nThanks for playing. See you soon.\n\n";
+  cout << "\nYou guessed " << score << " out of " << playCount << " words.\n";
+  cout << "Thanks for playing. See you soon.\n\n";
   return 0;
 }
