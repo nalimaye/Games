@@ -91,6 +91,7 @@ int main()
       cout << "Enter the weapon to ADD at the beginning : ";
       getline(cin, weapon);
       inventory.insert(inventory.begin(), weapon);
+      cout << "The " << weapon << " was ADDED.\n";
     }
 
     // Add a weapon at the end.
@@ -99,6 +100,24 @@ int main()
       cout << "Enter the weapon to ADD at the end : ";
       getline(cin, weapon);
       inventory.push_back(weapon);
+      cout << "The " << weapon << " was ADDED.\n";
+    }
+
+    // Remove a weapon.
+    else if (choice == "remove")
+    {
+      cout << "Enter the weapon to REMOVE : ";
+      getline(cin, weapon);
+      iter = find(inventory.begin(), inventory.end(), weapon);
+      if (iter != inventory.end())
+      {
+        inventory.erase(iter);
+        cout << "The " << weapon << " was REMOVED.\n";
+      }
+      else
+      {
+        cout << "The " << weapon << " was NOT in the inventory.\n";
+      }
     }
 
   } while (choice != "quit");
