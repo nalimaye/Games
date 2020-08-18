@@ -18,3 +18,8 @@ Player inputs a string and the game can test it for various things.
 
 Puzzle game in which the computer creates a version of a word, where its letters are in random order.
 Player has to guess the correct word to win. Player can ask for a hint, if stuck.
+
+### HerosInventory
+
+Player inputs the weapons for a Hero's Inventory. Player can then add (in front or back),
+find, remove or replace a weapon in it.
