@@ -70,10 +70,9 @@ int main()
     }
 
     // Find a weapon.
-    if (choice == "find")
+    else if (choice == "find")
     {
-
-      cout << "Enter the weapon to find : ";
+      cout << "Enter the weapon to FIND : ";
       getline(cin, weapon);
       iter = find(inventory.begin(), inventory.end(), weapon);
       if (iter != inventory.end())
@@ -85,6 +84,23 @@ int main()
         cout << "The " << weapon << " is NOT found....\n";
       }
     }
+
+    // Add a weapon at the beginning.
+    else if (choice == "addfront")
+    {
+      cout << "Enter the weapon to ADD at the beginning : ";
+      getline(cin, weapon);
+      inventory.insert(inventory.begin(), weapon);
+    }
+
+    // Add a weapon at the end.
+    else if (choice == "addback")
+    {
+      cout << "Enter the weapon to ADD at the end : ";
+      getline(cin, weapon);
+      inventory.push_back(weapon);
+    }
+
   } while (choice != "quit");
 
   cout << "\nThanks for playing. See you soon.\n\n";
