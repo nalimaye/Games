@@ -90,8 +90,16 @@ int main()
     {
       cout << "Enter the weapon to ADD at the beginning : ";
       getline(cin, weapon);
-      inventory.insert(inventory.begin(), weapon);
-      cout << "The " << weapon << " was ADDED.\n";
+      iter = find(inventory.begin(), inventory.end(), weapon);
+      if (iter != inventory.end())
+      {
+        cout << "The " << weapon << " is already present.\n";
+      }
+      else
+      {
+        inventory.insert(inventory.begin(), weapon);
+        cout << "The " << weapon << " is ADDED.\n";
+      }
     }
 
     // Add a weapon at the end.
@@ -99,8 +107,15 @@ int main()
     {
       cout << "Enter the weapon to ADD at the end : ";
       getline(cin, weapon);
-      inventory.push_back(weapon);
-      cout << "The " << weapon << " was ADDED.\n";
+      if (iter != inventory.end())
+      {
+        cout << "The " << weapon << " is already present.\n";
+      }
+      else
+      {
+        inventory.push_back(weapon);
+        cout << "The " << weapon << " is ADDED.\n";
+      }
     }
 
     // Remove a weapon.
@@ -112,11 +127,33 @@ int main()
       if (iter != inventory.end())
       {
         inventory.erase(iter);
-        cout << "The " << weapon << " was REMOVED.\n";
+        cout << "The " << weapon << " is REMOVED.\n";
       }
       else
       {
-        cout << "The " << weapon << " was NOT in the inventory.\n";
+        cout << "The " << weapon << " is NOT in the inventory.\n";
+      }
+    }
+
+    // Replace a weapon.
+    else if (choice == "replace")
+    {
+      string weaponNew;
+      cout << "Enter the weapon to REMOVE : ";
+      getline(cin, weapon);
+      cout << "Enter the weapon to REPLACE " << weapon << " : ";
+      getline(cin, weaponNew);
+
+      iter = find(inventory.begin(), inventory.end(), weapon);
+      if (iter != inventory.end())
+      {
+        inventory.erase(iter);
+        inventory.insert(iter, weaponNew);
+        cout << "The " << weapon << " is REPLACED with " << weaponNew << ".\n";
+      }
+      else
+      {
+        cout << "The " << weapon << " is NOT in the inventory.\n";
       }
     }
 
