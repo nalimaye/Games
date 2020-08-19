@@ -23,3 +23,8 @@ Player has to guess the correct word to win. Player can ask for a hint, if stuck
 
 Player inputs the weapons for a Hero's Inventory. Player can then add (in front or back),
 find, remove or replace a weapon in it.
+
+### Hangman
+
+The classic hangman game, where the player tries to guess a word one character at a time,
+and within a certain number of maximum guesses.
