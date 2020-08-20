@@ -5,11 +5,12 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <algorithm>
 #include <ctime>
 #include <cctype>
 
 using namespace std;
+
+char getPlayerGuess();
 
 int main()
 {
@@ -40,21 +41,17 @@ int main()
   // Main game loop
   while ((wrong < MAX_WRONG) && (soFar != THE_WORD))
   {
-    cout << "\ncYou have " << (MAX_WRONG - wrong) << " incorrect guesses left.\n";
+    cout << "\nYou have " << (MAX_WRONG - wrong) << " incorrect guesses left.\n";
     cout << "You have used the following letters : " << used << endl;
     cout << "So far, the word is : " << soFar << endl;
 
     char guess;
-    cout << "\nEnter your guess : ";
-    cin >> guess;
-    guess = toupper(guess); // Since secret word is in uppercase.
+    guess = getPlayerGuess();
 
     while (used.find(guess) != string::npos)
     {
       cout << "You have already guessed " << guess << endl;
-      cout << "\nEnter your guess : ";
-      cin >> guess;
-      guess = toupper(guess); // Since secret word is in uppercase.
+      guess = getPlayerGuess();
     }
 
     used += guess;
@@ -89,4 +86,15 @@ int main()
   }
 
   return 0;
+}
+
+// Functions
+
+char getPlayerGuess()
+{
+  char guess;
+  cout << "\nEnter your guess : ";
+  cin >> guess;
+  guess = toupper(guess); // Since secret word is in uppercase.
+  return guess;
 }
