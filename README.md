@@ -28,3 +28,7 @@ find, remove or replace a weapon in it.
 
 The classic hangman game, where the player tries to guess a word one character at a time,
 and within a certain number of maximum guesses.
+
+### TicTacToe
+
+The classic Tic-Tac-Toe game.
